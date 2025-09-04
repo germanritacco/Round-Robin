@@ -15,4 +15,10 @@ void pausa(void)
 {
     printf(ANSI_bCYAN "\n\nPresione una tecla para continuar...." ANSI_RESET);
     getchar();
-}   
+}
+
+/// @brief Limpia la pantalla de la consola.
+void limpiar_pantalla()
+{
+    printf("\033[2J\033[1;1H");
+}

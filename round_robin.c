@@ -24,6 +24,7 @@ typedef struct
 void cargarTiempoProcesos(proceso procesos[])
 {
     int i = 0, validador, tiempoProceso;
+    printf("\n");
     while (i < TAMANIO)
     {
         printf(ANSI_bBLUE "Ingresar las unidades de tiempo del proceso %c: " ANSI_YELLOW, procesos[i].id);
@@ -239,7 +240,7 @@ void menu_principal()
     printf("\n");
     printf(" ------------------------------------------------------------------------------\n");
     printf("\n");
-    printf("  Por favor seleccione una opción: " ANSI_YELLOW);
+    printf("  Por favor seleccione una opcion: " ANSI_YELLOW);
 }
 
 int main()
@@ -251,14 +252,15 @@ int main()
     bool salir = false;
     proceso procesos[TAMANIO];
     cargarNombreProcesos(procesos);
+    limpiar_pantalla();
     while (!salir)
     {
         menu_principal();
         int validador = scanf("%i", &opcion);
         while (validador != 1 || opcion < 0 || opcion > 4)
         {
-            printf(ANSI_RED "Opción incorrecta\n" ANSI_RESET);
-            printf(ANSI_bBLUE "  Por favor seleccione una opción: " ANSI_YELLOW);
+            printf(ANSI_RED "Opcion incorrecta\n" ANSI_RESET);
+            printf(ANSI_bBLUE "  Por favor seleccione una opcion: " ANSI_YELLOW);
             while (getchar() != '\n')
                 ;
             validador = scanf("%i", &opcion);
@@ -290,7 +292,7 @@ int main()
                 instancia instancias[total];
                 // Round Robin
                 roundRobin(procesos, instancias, quantum, conmutacion);
-                // Mostrar estadísticas
+                // Mostrar estadisticas
                 printf(ANSI_bMAGENTA "\n\n\nProcesamiento:\n\n" ANSI_RESET);
                 mostrarProcesamiento(total, instancias);
                 printf(ANSI_bMAGENTA "\n\nTiempos:\n\n" ANSI_RESET);
@@ -307,6 +309,7 @@ int main()
             break;
         }
         case 0:
+            printf(ANSI_RESET);
             salir = true;
             break;
         }

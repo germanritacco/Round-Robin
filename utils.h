@@ -21,4 +21,6 @@ void vaciar_buffer(void);
 
 void pausa(void);
 
+void limpiar_pantalla(void);
+
 #endif // UTILS_H
