@@ -127,7 +127,8 @@ void tiempos(char dato, int total, int tiempoLlegada, instancia instancias[], in
         else
             i--;
     }
-    int f = instancias[i].instanteFinal;
+    int tiempoFinal = instancias[i].instanteFinal;
+    /*
     // Busco el instante en el que comienza el proceso.
     encontre = false;
     i = 0;
@@ -138,10 +139,11 @@ void tiempos(char dato, int total, int tiempoLlegada, instancia instancias[], in
         else
             i++;
     }
-    int ini = instancias[i].instanteLlegada;
+    int tiempoInicio = instancias[i].instanteLlegada;
+    */
     int retorno, espera;
-    retorno = f - ini;                 // Tiempo de retorno.
-    espera = retorno - tiempoServicio; // Tiempo de espera.
+    retorno = tiempoFinal - tiempoLlegada; // Tiempo de retorno.
+    espera = retorno - tiempoServicio;     // Tiempo de espera.
     printf(ANSI_bBLUE "Proceso: " ANSI_bGREEN "%c" ANSI_bCYAN " -->" ANSI_bBLUE " Retorno: " ANSI_bGREEN "%d" ANSI_bBLUE ", Espera: " ANSI_bGREEN "%d\n" ANSI_RESET, dato, retorno, espera);
 }
 
